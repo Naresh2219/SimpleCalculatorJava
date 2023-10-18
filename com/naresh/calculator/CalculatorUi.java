@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 public class CalculatorUi extends JFrame {
     private JTextField numField1;
     private JTextField numField2;
-    private JTextField numField3;
     private JComboBox<String> operationComboBox;
     private JLabel resultLabel;
 
@@ -19,7 +18,6 @@ public class CalculatorUi extends JFrame {
         // Components
         numField1 = new JTextField();
         numField2 = new JTextField();
-        numField3 = new JTextField();
         operationComboBox = new JComboBox<>(new String[]{"add", "sub", "div", "mul","evenOdd"});
         JButton calculateButton = new JButton("Calculate");
         resultLabel = new JLabel();
@@ -29,8 +27,6 @@ public class CalculatorUi extends JFrame {
         add(numField1);
         add(new JLabel("Enter Second Number:"));
         add(numField2);
-        add(new JLabel("Enter number For check Even or odd"));
-        add(numField3);
         add(new JLabel("Select Operation:"));
         add(operationComboBox);
         add(new JLabel()); // Empty label for spacing
@@ -52,7 +48,6 @@ public class CalculatorUi extends JFrame {
             // Get user input
             int n1 = Integer.parseInt(numField1.getText());
             int n2 = Integer.parseInt(numField2.getText());
-            int n3 = Integer.parseInt(numField3.getText());
             String operation = (String) operationComboBox.getSelectedItem();
 
             // Perform calculation using Calculator class
@@ -74,14 +69,6 @@ public class CalculatorUi extends JFrame {
                 case "mul":
                     result = n1 * n2;
                     break;
-                case "evenOdd":
-                    if(n3%2==0){
-                    resultLabel.setText("its Even");
-                }else{
-                    resultLabel.setText("its odd");
-                return;
-                }
-               break;
                 default:
                     resultLabel.setText("Invalid operation");
                     return;
