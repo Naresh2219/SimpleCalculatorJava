@@ -1,3 +1,4 @@
+package com.naresh.calculator;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -23,16 +24,22 @@ public class CasioLikeCalculatorUi extends JFrame {
         add(display, BorderLayout.NORTH);
 
         // Digit buttons
-        JPanel buttonPanel = new JPanel(new GridLayout(4, 3, 5, 5));
+        JPanel digitPanel = new JPanel(new GridLayout(4, 3, 5, 5));
         digitButtons = new JButton[10];
-        for (int i = 0; i < 10; i++) {
+        for (int i = 1; i < 10; i++) {
             digitButtons[i] = new JButton(Integer.toString(i));
-            digitButtons[i].setFont(new Font("Arial", Font.PLAIN, 18));
+            digitButtons[i].setFont(new Font("Arial", Font.PLAIN, 10));
             digitButtons[i].addActionListener(new DigitButtonListener());
-            buttonPanel.add(digitButtons[i]);
+            digitPanel.add(digitButtons[i]);
         }
 
+        digitButtons[0] = new JButton("0");
+        digitButtons[0].setFont(new Font("Arial", Font.PLAIN, 10));
+        digitButtons[0].addActionListener(new DigitButtonListener());
+        digitPanel.add(digitButtons[0]);
+
         // Operation buttons
+        JPanel operationPanel = new JPanel(new GridLayout(5, 1, 5, 5));
         addButton = createOperationButton("+");
         subButton = createOperationButton("-");
         mulButton = createOperationButton("x");
@@ -40,8 +47,8 @@ public class CasioLikeCalculatorUi extends JFrame {
         equalsButton = new JButton("=");
         clearButton = new JButton("C");
 
-        equalsButton.setFont(new Font("Arial", Font.PLAIN, 18));
-        clearButton.setFont(new Font("Arial", Font.PLAIN, 18));
+        equalsButton.setFont(new Font("Arial", Font.PLAIN, 10));
+        clearButton.setFont(new Font("Arial", Font.PLAIN, 10));
 
         equalsButton.addActionListener(new ActionListener() {
             @Override
@@ -57,15 +64,16 @@ public class CasioLikeCalculatorUi extends JFrame {
             }
         });
 
-        buttonPanel.add(addButton);
-        buttonPanel.add(subButton);
-        buttonPanel.add(mulButton);
-        buttonPanel.add(divButton);
-        buttonPanel.add(digitButtons[0]);
-        buttonPanel.add(equalsButton);
-        buttonPanel.add(clearButton);
+        operationPanel.add(addButton);
+        operationPanel.add(subButton);
+        operationPanel.add(mulButton);
+        operationPanel.add(divButton);
+        operationPanel.add(clearButton);
+        operationPanel.add(equalsButton);
 
-        add(buttonPanel, BorderLayout.CENTER);
+        add(digitPanel, BorderLayout.CENTER);
+        add(operationPanel, BorderLayout.EAST);
+       add(equalsButton,BorderLayout.SOUTH);
 
         // Initialize current input
         currentInput = new StringBuilder();
@@ -149,3 +157,4 @@ public class CasioLikeCalculatorUi extends JFrame {
         });
     }
 }
+
