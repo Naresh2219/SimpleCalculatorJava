@@ -1,0 +1,35 @@
+.label {
+    font-size: 14px;
+    -webkit-font-size: 14px; /* For WebKit/Blink browsers like Chrome and Safari */
+    -moz-font-size: 14px;    /* For Mozilla Firefox */
+    -ms-font-size: 14px;     /* For Microsoft Internet Explorer */
+}
+
+.text-field {
+    font-size: 14px;
+    -webkit-font-size: 14px;
+    -moz-font-size: 14px;
+    -ms-font-size: 14px;
+}
+
+.combo-box {
+    font-size: 14px;
+    -webkit-font-size: 14px;
+    -moz-font-size: 14px;
+    -ms-font-size: 14px;
+}
+
+.button {
+    font-size: 14px;
+    -webkit-font-size: 14px;
+    -moz-font-size: 14px;
+    -ms-font-size: 14px;
+}
+
+.label.result-label {
+    font-size: 16px;
+    -webkit-font-size: 16px;
+    -moz-font-size: 16px;
+    -ms-font-size: 16px;
+    font-weight: bold;
+}
